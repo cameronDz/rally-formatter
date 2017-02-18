@@ -148,7 +148,9 @@ public abstract class AbstractAgileObject {
 	}
 	
 	/**
-	 * 
+	 * @return 
 	 */
-	public abstract String toString();
+	public String toString() {
+		return this.type + this.id;
+	}
 }
