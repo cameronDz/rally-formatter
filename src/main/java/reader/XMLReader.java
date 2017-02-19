@@ -1,6 +1,7 @@
 package reader;
 
-public class XMLReader implements ExtractedDataInterface {
+public class XMLReader extends ExtractedDataInterface {
 
-	
+    
+    
 }

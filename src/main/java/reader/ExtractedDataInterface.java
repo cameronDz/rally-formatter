@@ -1,5 +1,9 @@
 package reader;
 
-public interface ExtractedDataInterface {
+import java.io.FileInputStream;
 
+public abstract class ExtractedDataInterface {
+
+    protected String path;
+    protected FileInputStream inputStream;
 }

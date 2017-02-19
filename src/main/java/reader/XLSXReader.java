@@ -1,16 +1,89 @@
 package reader;
 
-public class XLSXReader implements ExtractedDataInterface {
+import data.UserStory;
+import data.UserStoryXLSX;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-	/**
-	 * Takes a formatted ID from rally, that contains integers as well as 
-	 * letters, removes the letters, and returns the integer.
-	 * http://stackoverflow.com/questions/2338790/get-int-from-string-also-containing-letters-in-java
-	 * @param s String that contains desired ID
-	 * @return integer that was previously in a String form with attached 
-	 * letters
-	 */
-	private int getIntFromFormattedId(String s) {
-		return Integer.parseInt(s.replaceAll("[\\D]", ""));
-	}
+public class XLSXReader extends ExtractedDataInterface {
+    
+    private final Workbook workbook;
+    private final Sheet sheet;
+    private final Iterator<Row> iterator;
+    
+    /**
+     * Basic constructor for reader
+     * @param path the file path of the XLSX sheet being read from
+     * @throws FileNotFoundException if the file does not exists
+     *   // TODO catch      
+     * @throws IOException if the file can't be read 
+     *   // TODO catch
+     */
+    public XLSXReader(String path) throws FileNotFoundException, IOException {
+        this.path = path;
+        this.inputStream = new FileInputStream(new File(path));
+        this.workbook = new XSSFWorkbook(inputStream);
+        this.sheet = workbook.getSheetAt(0);
+        this.iterator = sheet.iterator();
+    }
+    
+    /**
+     * Iterates through workbook and returns all user stories.
+     * @return List of all user stories.
+     */
+    public List<UserStoryXLSX> createUserStories() {
+        List<UserStoryXLSX> list = new ArrayList();
+                
+        // use iterator to loop through each row in 
+        while( iterator.hasNext() ) {
+            Row nextRow = iterator.next();
+            Iterator<Cell> cellIterator = nextRow.cellIterator();
+            UserStory us = new UserStoryXLSX(0);
+            
+            // work through the current 4 columns in the extract
+            Cell cell = cellIterator.next();
+            String value = cell.getStringCellValue();
+            us.setId( getIntFromFormattedId( value ));
+            
+            // get US name
+            cell = cellIterator.next();
+            value = cell.getStringCellValue();
+            us.setName(value);
+            
+            // get US description
+            cell = cellIterator.next();
+            value = cell.getStringCellValue();
+            us.setName(value);
+            
+            // get US notes
+            cell = cellIterator.next();
+            value = cell.getStringCellValue();
+            us.setName(value);
+        }
+        
+        return list;
+    }
+    
+    
+    /**
+     * Takes a formatted ID from rally, that contains integers as well as 
+     * letters, removes the letters, and returns the integer.
+     * http://stackoverflow.com/questions/2338790/get-int-from-string-also-containing-letters-in-java
+     * @param s String that contains desired ID
+     * @return integer that was previously in a String form with attached 
+     * letters
+     */
+    private int getIntFromFormattedId(String s) {
+            return Integer.parseInt(s.replaceAll("[\\D]", ""));
+    }
 }
