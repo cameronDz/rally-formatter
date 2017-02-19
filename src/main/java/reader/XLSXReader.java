@@ -43,12 +43,14 @@ public class XLSXReader extends ExtractedDataInterface {
      */
     public List<UserStoryXLSX> createUserStories() {
         List<UserStoryXLSX> list = new ArrayList();
-                
+        iterator.next();
+        
         // use iterator to loop through each row in 
         while( iterator.hasNext() ) {
+            System.out.print("BBBB");
             Row nextRow = iterator.next();
             Iterator<Cell> cellIterator = nextRow.cellIterator();
-            UserStory us = new UserStoryXLSX(0);
+            UserStoryXLSX us = new UserStoryXLSX(0);
             
             // work through the current 4 columns in the extract
             Cell cell = cellIterator.next();
@@ -69,6 +71,9 @@ public class XLSXReader extends ExtractedDataInterface {
             cell = cellIterator.next();
             value = cell.getStringCellValue();
             us.setName(value);
+            
+            // add US to list
+            list.add(us);
         }
         
         return list;
