@@ -17,12 +17,15 @@ public class DocTester {
 		tmpRun.setText("LALALALAALALAAAA");
 		tmpRun.setFontSize(18);
 		try {
-			document.write(new FileOutputStream(new File("yourpathhere.docx")));
+			document.write(new FileOutputStream(new File("target/yourpathhere.docx")));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				document.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		//document.close();
 	}
-	
 }

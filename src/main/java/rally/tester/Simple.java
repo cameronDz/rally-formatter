@@ -14,7 +14,7 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 public class Simple {
  
     public static void main (String[] args) throws Exception {
-        String outputFileName = "Simple.pdf";
+        String outputFileName = "target/Simple.pdf";
         if (args.length > 0)
             outputFileName = args[0];
  
