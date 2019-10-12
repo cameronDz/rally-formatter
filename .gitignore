@@ -1,0 +1,16 @@
+# maven ignores
+target/
+
+# window ignores
+RemoteSystemsTempFiles/
+.metadata
+
+# ide ignores
+.classpath
+.projects
+.settings/
+
+# general ignores
+*.swp
+*.log
+
