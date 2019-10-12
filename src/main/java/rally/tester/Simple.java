@@ -87,7 +87,7 @@ public class Simple {
  
         // add an image
         try {
-            PDImageXObject ximage = PDImageXObject.createFromFile("RALLY_ACCEPTED.png", document);
+            PDImageXObject ximage = PDImageXObject.createFromFile("assets/data/RALLY_ACCEPTED.png", document);
             float scale = 0.5f; // alter this value to set the image size
             cos.drawImage(ximage, 100, 400, ximage.getWidth()*scale, ximage.getHeight()*scale);
         } catch (IOException ioex) {
@@ -96,7 +96,7 @@ public class Simple {
 
         // add a second image
         try {
-            PDImageXObject ximage = PDImageXObject.createFromFile("RALLY_DEFINED.png", document);
+            PDImageXObject ximage = PDImageXObject.createFromFile("assets/data/RALLY_DEFINED.png", document);
             float scale = 0.5f; // alter this value to set the image size
             cos.drawImage(ximage, 150, 450, ximage.getWidth()*scale, ximage.getHeight()*scale);
         } catch (IOException ioex) {
