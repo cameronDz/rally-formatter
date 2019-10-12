@@ -1,4 +1,15 @@
-.metadata/
+# maven ignores
+target/
+
+# window ignores
 RemoteSystemsTempFiles/
-target/classes/.netbeans_automatic_build
-target/test-classes/
+.metadata/
+
+# ide ignores
+.classpath
+.project
+.settings/
+
+# general ignores
+*.swp
+*.log

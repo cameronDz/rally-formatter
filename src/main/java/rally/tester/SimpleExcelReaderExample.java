@@ -19,7 +19,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class SimpleExcelReaderExample {
      
     public static void main(String[] args) throws IOException {
-        String excelFilePath = "export.xlsx";
+        String excelFilePath = "assets/data/export.xlsx";
         FileInputStream inputStream = new FileInputStream(new File(excelFilePath));
          
         Workbook workbook = new XSSFWorkbook(inputStream);
