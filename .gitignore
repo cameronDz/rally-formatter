@@ -7,7 +7,7 @@ RemoteSystemsTempFiles/
 
 # ide ignores
 .classpath
-.projects
+.project
 .settings/
 
 # general ignores
