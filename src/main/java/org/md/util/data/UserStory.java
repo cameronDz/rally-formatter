@@ -1,4 +1,4 @@
-package data;
+package org.md.util.data;
 
 /**
  * Class used to define all the methods needed for a basic User Story object.

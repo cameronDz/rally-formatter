@@ -1,4 +1,4 @@
-package rally.tester;
+package org.md.util.poc;
 
 import java.awt.Color;
 import java.io.IOException;

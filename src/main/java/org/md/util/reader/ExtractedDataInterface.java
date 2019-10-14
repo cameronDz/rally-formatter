@@ -1,4 +1,4 @@
-package reader;
+package org.md.util.reader;
 
 import java.io.FileInputStream;
 

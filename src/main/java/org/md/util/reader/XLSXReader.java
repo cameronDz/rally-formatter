@@ -1,6 +1,5 @@
-package reader;
+package org.md.util.reader;
 
-import data.UserStoryXLSX;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,6 +12,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.md.util.data.UserStoryXLSX;
 
 public class XLSXReader extends ExtractedDataInterface {
     

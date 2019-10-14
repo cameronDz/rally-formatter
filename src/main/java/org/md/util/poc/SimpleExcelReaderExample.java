@@ -1,4 +1,4 @@
-package rally.tester;
+package org.md.util.poc;
 
 import java.io.File;
 import java.io.FileInputStream;

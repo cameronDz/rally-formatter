@@ -1,4 +1,4 @@
-package data;
+package org.md.util.data;
 
 /**
  * Used as the basic class for all agile objects: Tasks, UserStories, Features,

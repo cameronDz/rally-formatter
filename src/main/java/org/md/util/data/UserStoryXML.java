@@ -1,4 +1,4 @@
-package data;
+package org.md.util.data;
 
 /**
  * User Story data holder when data is extracted from and XML file.
