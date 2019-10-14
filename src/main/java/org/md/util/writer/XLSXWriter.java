@@ -15,11 +15,12 @@ import org.md.util.data.UserStoryXLSX;
  */
 public class XLSXWriter {
 
+	public XLSXWriter() { }
+
 	/**
-	 * Basic constructor for writing a doc
-	 * @param list List of US that will be printed out.
+	 * @param userStoryXlsxList List of US that will be printed out
 	 */
-	public XLSXWriter(List<UserStoryXLSX> list) {
+	public void generateDocs(List<UserStoryXLSX> userStoryXlsxList) {
 		// create variables for writing documents
 		XWPFDocument document;
 		XWPFParagraph tmpParagraph;
@@ -37,11 +38,12 @@ public class XLSXWriter {
 			document.write(new FileOutputStream(new File("yourTestHere.docx")));
 			document.close();
 		} catch (IOException e) {
+			// TODO proper logging
 			e.printStackTrace();
 		}
 
 		//loop through list of US and write each to the file
-		Iterator<UserStoryXLSX> iterator = list.iterator();
+		Iterator<UserStoryXLSX> iterator = userStoryXlsxList.iterator();
 		while (iterator.hasNext()) {
 
 			// reset writer objects
@@ -64,6 +66,7 @@ public class XLSXWriter {
 				document.write(new FileOutputStream(new File("yourTestHere.docx")));
 				document.close();
 			} catch (IOException e) {
+				// TODO proper logging
 				e.printStackTrace();
 			}
 		}
