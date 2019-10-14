@@ -14,6 +14,4 @@ public class UserStoryXML extends UserStory{
 	public UserStoryXML(int id) {
 		this.id = id;
 	}
-	
-	
 }

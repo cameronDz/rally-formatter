@@ -14,6 +14,4 @@ public class UserStoryXLSX extends UserStory {
 	public UserStoryXLSX(int id) {
 		this.id = id;
 	}
-	
-	
 }

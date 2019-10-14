@@ -6,10 +6,4 @@ package data;
  * @author Cameron
  *
  */
-public abstract class UserStory extends AbstractAgileObject {
-
-	/**
-	 * 
-	 */
-
-}
+public abstract class UserStory extends AbstractAgileObject { }
