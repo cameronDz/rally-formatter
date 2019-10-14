@@ -32,18 +32,19 @@ public class SimpleExcelReaderExample {
              
             while (cellIterator.hasNext()) {
                 Cell cell = cellIterator.next();
-                
                  
                 switch (cell.getCellType()) {
-                    case Cell.CELL_TYPE_STRING:
+                    case STRING:
                         System.out.print(cell.getStringCellValue());
                         break;
-                    case Cell.CELL_TYPE_BOOLEAN:
+                    case BOOLEAN:
                         System.out.print(cell.getBooleanCellValue());
                         break;
-                    case Cell.CELL_TYPE_NUMERIC:
+                    case NUMERIC:
                         System.out.print(cell.getNumericCellValue());
                         break;
+                    default:
+                        System.out.print("Unsupported CellType");
                 }
                 System.out.print(" - ");
             }
