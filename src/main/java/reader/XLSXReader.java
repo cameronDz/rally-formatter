@@ -1,6 +1,5 @@
 package reader;
 
-import data.UserStory;
 import data.UserStoryXLSX;
 import java.io.File;
 import java.io.FileInputStream;
@@ -42,7 +41,7 @@ public class XLSXReader extends ExtractedDataInterface {
      * @return List of all user stories.
      */
     public List<UserStoryXLSX> createUserStories() {
-        List<UserStoryXLSX> list = new ArrayList();
+        List<UserStoryXLSX> list = new ArrayList<UserStoryXLSX>();
         iterator.next();
         
         // use iterator to loop through each row in 
