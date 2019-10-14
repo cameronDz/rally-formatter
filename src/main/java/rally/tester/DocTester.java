@@ -18,14 +18,9 @@ public class DocTester {
 		tmpRun.setFontSize(18);
 		try {
 			document.write(new FileOutputStream(new File("target/yourpathhere.docx")));
+			document.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				document.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 }

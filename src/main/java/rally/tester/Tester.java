@@ -5,7 +5,6 @@
  */
 package rally.tester;
 
-import data.UserStory;
 import data.UserStoryXLSX;
 import java.io.IOException;
 import java.util.List;
@@ -13,20 +12,20 @@ import reader.XLSXReader;
 import writer.XLSXWriter;
 
 /**
- *
  * @author Cameron
  */
 public class Tester {
-    
-    public static void main(String[] args) throws IOException {
-        
-        String file = "export.xlsx";
+
+	public static void main(String[] args) throws IOException {
+
+        String file = "assets/data/export.xlsx";
         XLSXReader read = new XLSXReader(file);
         List<UserStoryXLSX> list = read.createUserStories();
-        if( list.isEmpty() ) {
+        if(list.isEmpty()) {
+        	// TODO use proper logger
             System.out.print("Empty");
         }
-        XLSXWriter writer = new XLSXWriter(list);
+        // TODO this should be a void method call on a service or help class
+        new XLSXWriter(list);
     }
-    
 }

@@ -32,6 +32,7 @@ public class SimpleExcelReaderExample {
              
             while (cellIterator.hasNext()) {
                 Cell cell = cellIterator.next();
+                
                  
                 switch (cell.getCellType()) {
                     case Cell.CELL_TYPE_STRING:
