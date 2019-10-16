@@ -18,9 +18,9 @@ public class XLSXDataWriterService {
 	public XLSXDataWriterService() { }
 
 	/**
-	 * @param userStoryXlsxList List of US that will be printed out
+	 * @param userStoryList List of US that will be printed out
 	 */
-	public void generateDocs(List<XLSXUserStoryModel> userStoryXlsxList) {
+	public void generateDocs(List<XLSXUserStoryModel> userStoryList) {
 		// create variables for writing documents
 		XWPFDocument document;
 		XWPFParagraph tmpParagraph;
@@ -43,7 +43,7 @@ public class XLSXDataWriterService {
 		}
 
 		//loop through list of US and write each to the file
-		Iterator<XLSXUserStoryModel> iterator = userStoryXlsxList.iterator();
+		Iterator<XLSXUserStoryModel> iterator = userStoryList.iterator();
 		while (iterator.hasNext()) {
 
 			// reset writer objects
