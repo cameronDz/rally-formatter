@@ -16,11 +16,11 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.md.util.models.XLSXUserStoryModel;
 
-public class XLSXDataReaderService {
+public class PoiReaderService {
 	
 	private static final Logger LOG = LogManager.getLogger();
 
-    public XLSXDataReaderService() { }
+    public PoiReaderService() { }
 
     /**
      * Iterates through workbook and returns all user stories.
