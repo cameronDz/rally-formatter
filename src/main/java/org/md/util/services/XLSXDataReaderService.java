@@ -20,25 +20,14 @@ public class XLSXDataReaderService {
 	
 	private static final Logger LOG = LogManager.getLogger();
 
-    private String path;
-
-    public XLSXDataReaderService() {
-    	this.path = "";
-    }
-
-    /**
-     * Basic constructor for reader
-     * @param path the file path of the XLSX sheet being read from
-     */
-    public XLSXDataReaderService(String path) {
-        this.path = path;
-    }
+    public XLSXDataReaderService() { }
 
     /**
      * Iterates through workbook and returns all user stories.
+     * @param path directory path to file
      * @return List of all user stories
      */
-    public List<XLSXUserStoryModel> createUserStories() {
+    public List<XLSXUserStoryModel> createUserStories(String path) {
         List<XLSXUserStoryModel> list = null;
 		try {
 			FileInputStream inputStream = new FileInputStream(new File(path));
