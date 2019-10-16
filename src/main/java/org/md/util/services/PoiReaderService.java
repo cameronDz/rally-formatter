@@ -14,7 +14,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.md.util.models.XLSXUserStoryModel;
+import org.md.util.models.UserStoryModel;
 
 public class PoiReaderService {
 	
@@ -27,8 +27,8 @@ public class PoiReaderService {
      * @param path directory path to file
      * @return List of all user stories
      */
-    public List<XLSXUserStoryModel> createUserStories(String path) {
-        List<XLSXUserStoryModel> list = null;
+    public List<UserStoryModel> createUserStories(String path) {
+        List<UserStoryModel> list = null;
 		try {
 			FileInputStream inputStream = new FileInputStream(new File(path));
 			Workbook workbook = new XSSFWorkbook(inputStream);
@@ -42,15 +42,15 @@ public class PoiReaderService {
         return list;
     }
 
-	private List<XLSXUserStoryModel> generateListByIteratoringThroughRows(Iterator<Row> iterator) {
-        List<XLSXUserStoryModel> list = new ArrayList<XLSXUserStoryModel>();
+	private List<UserStoryModel> generateListByIteratoringThroughRows(Iterator<Row> iterator) {
+        List<UserStoryModel> list = new ArrayList<UserStoryModel>();
 
         // iterator through list of stories, skip first row
         iterator.next();
         while(iterator.hasNext()) {
             Row nextRow = iterator.next();
             Iterator<Cell> cellIterator = nextRow.cellIterator();
-            XLSXUserStoryModel us = new XLSXUserStoryModel(0);
+            UserStoryModel us = new UserStoryModel(0);
             
             // work through the current 4 columns in the extract
             Cell cell = cellIterator.next();

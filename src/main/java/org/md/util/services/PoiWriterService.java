@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
-import org.md.util.models.XLSXUserStoryModel;
+import org.md.util.models.UserStoryModel;
 
 /**
  * @author Cameron
@@ -25,7 +25,7 @@ public class PoiWriterService {
 	/**
 	 * @param userStoryList List of US that will be printed out
 	 */
-	public void generateDocs(List<XLSXUserStoryModel> userStoryList) {
+	public void generateDocs(List<UserStoryModel> userStoryList) {
 		// create variables for writing documents
 		XWPFDocument document;
 		XWPFParagraph tmpParagraph;
@@ -47,7 +47,7 @@ public class PoiWriterService {
 		}
 
 		//loop through list of US and write each to the file
-		Iterator<XLSXUserStoryModel> iterator = userStoryList.iterator();
+		Iterator<UserStoryModel> iterator = userStoryList.iterator();
 		while (iterator.hasNext()) {
 
 			// reset writer objects
@@ -56,7 +56,7 @@ public class PoiWriterService {
 			tmpRun = tmpParagraph.createRun();
 
 			// put US data into string
-			XLSXUserStoryModel us = iterator.next();
+			UserStoryModel us = iterator.next();
 			String usString = "US";
 			usString += us.getId() + ": ";
 			usString += us.getName() + "\n";

@@ -5,7 +5,7 @@ package org.md.util.models;
  * @author Cameron
  *
  */
-public class XLSXUserStoryModel {
+public class UserStoryModel {
 
 	private String description;
 	private String discussions;
@@ -20,7 +20,7 @@ public class XLSXUserStoryModel {
 	 * User story formatted ID code number.
 	 * @param id
 	 */
-	public XLSXUserStoryModel(int id) {
+	public UserStoryModel(int id) {
 		this.id = id;
 	}
 
@@ -117,7 +117,7 @@ public class XLSXUserStoryModel {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		XLSXUserStoryModel other = (XLSXUserStoryModel) obj;
+		UserStoryModel other = (UserStoryModel) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;
