@@ -14,7 +14,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.md.util.data.UserStoryXLSX;
 
-public class XLSXReader extends AbstractDataReaderService {
+public class XLSXDataReaderService extends AbstractDataReaderService {
 
     private final Workbook workbook;
     private final Sheet sheet;
@@ -26,7 +26,7 @@ public class XLSXReader extends AbstractDataReaderService {
      * @throws FileNotFoundException if the file does not exists
      * @throws IOException if the file can't be read
      */
-    public XLSXReader(String path) throws FileNotFoundException, IOException {
+    public XLSXDataReaderService(String path) throws FileNotFoundException, IOException {
         this.path = path;
         // TODO move to some void method
         this.inputStream = new FileInputStream(new File(path));
