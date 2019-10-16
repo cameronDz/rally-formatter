@@ -24,6 +24,7 @@ public class PoiWriterService {
 
 	/**
 	 * @param userStoryList List of US that will be printed out
+	 * @param path directory and filename to output document
 	 */
 	public void generateDocs(List<UserStoryModel> userStoryList, String path) {
 		// create variables for writing documents

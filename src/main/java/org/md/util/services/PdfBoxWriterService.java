@@ -19,8 +19,10 @@ public class PdfBoxWriterService {
 
 	public PdfBoxWriterService() {}
 	
+	/**
+	 * @param path directory and filename to output document
+	 */
 	public void generateDocument(String path) {
-		String outputFileName = "target/Simple.pdf"; // path
 
 		// Create a document and add a page to it
 		PDDocument document = new PDDocument();
@@ -110,7 +112,7 @@ public class PdfBoxWriterService {
 			// close the content stream for page 2
 			cos.close();
 			// Save the results and ensure that the document is properly closed:
-			document.save(outputFileName);
+			document.save(path);
 			document.close();
 
 		} catch (IOException e) {
