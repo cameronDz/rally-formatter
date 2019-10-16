@@ -14,7 +14,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.md.util.data.UserStoryXLSX;
 
-public class XLSXReader extends ExtractedDataInterface {
+public class XLSXReader extends AbstractDataReaderService {
 
     private final Workbook workbook;
     private final Sheet sheet;
