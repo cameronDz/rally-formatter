@@ -9,11 +9,11 @@ import org.md.util.services.PoiWriterService;
 /**
  * @author Cameron
  */
-public class Tester {
+public class PioReaderWriterPoc {
 
 	public static void main(String[] args) {
 		String path = "assets/data/export.xlsx";
-		List<UserStoryModel> userStoryXlsxList = new PoiReaderService().createUserStories(path);
-		new PoiWriterService().generateDocs(userStoryXlsxList);
+		List<UserStoryModel> userStoryList = new PoiReaderService().createUserStories(path);
+		new PoiWriterService().generateDocs(userStoryList);
 	}
 }
