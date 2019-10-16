@@ -14,38 +14,38 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.md.util.data.UserStoryXLSX;
 
-public class XLSXDataReaderService extends AbstractDataReaderService {
+public class XLSXDataReaderService {
 
-    private final Workbook workbook;
-    private final Sheet sheet;
-    private final Iterator<Row> iterator;
+    private String path;
+
+    public XLSXDataReaderService() {
+    	this.path = "";
+    }
 
     /**
      * Basic constructor for reader
      * @param path the file path of the XLSX sheet being read from
-     * @throws FileNotFoundException if the file does not exists
-     * @throws IOException if the file can't be read
      */
-    public XLSXDataReaderService(String path) throws FileNotFoundException, IOException {
+    public XLSXDataReaderService(String path) {
         this.path = path;
-        // TODO move to some void method
-        this.inputStream = new FileInputStream(new File(path));
-        this.workbook = new XSSFWorkbook(inputStream);
-        this.sheet = workbook.getSheetAt(0);
-        this.iterator = sheet.iterator();
     }
 
     /**
      * Iterates through workbook and returns all user stories.
      * @return List of all user stories.
+     * @throws FileNotFoundException if the file does not exists
+     * @throws IOException if the file can't be read
      */
-    public List<UserStoryXLSX> createUserStories() {
+    public List<UserStoryXLSX> createUserStories() throws FileNotFoundException, IOException {
         List<UserStoryXLSX> list = new ArrayList<UserStoryXLSX>();
-        iterator.next();
+        FileInputStream inputStream = new FileInputStream(new File(path));
+        Workbook workbook = new XSSFWorkbook(inputStream);
+        Sheet sheet = workbook.getSheetAt(0);
 
-        // use iterator to loop through each row in 
+        // iterator through list of stories, skip first row
+        Iterator<Row> iterator = sheet.iterator();
+        iterator.next();
         while(iterator.hasNext()) {
-            System.out.print("BBBB");
             Row nextRow = iterator.next();
             Iterator<Cell> cellIterator = nextRow.cellIterator();
             UserStoryXLSX us = new UserStoryXLSX(0);
@@ -73,6 +73,7 @@ public class XLSXDataReaderService extends AbstractDataReaderService {
             // add US to list
             list.add(us);
         }
+        workbook.close();
         return list;
     }
 
