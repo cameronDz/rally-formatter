@@ -16,11 +16,11 @@ import org.md.util.models.XLSXUserStoryModel;
 /**
  * @author Cameron
  */
-public class XLSXDataWriterService {
+public class PoiWriterService {
 	
 	private static final Logger LOG = LogManager.getLogger();
 
-	public XLSXDataWriterService() { }
+	public PoiWriterService() { }
 
 	/**
 	 * @param userStoryList List of US that will be printed out
