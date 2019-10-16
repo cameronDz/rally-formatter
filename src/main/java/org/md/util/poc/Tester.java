@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.md.util.data.UserStoryXLSX;
-import org.md.util.reader.XLSXReader;
-import org.md.util.writer.XLSXWriter;
+import org.md.util.services.XLSXReader;
+import org.md.util.services.XLSXWriter;
 
 /**
  * @author Cameron

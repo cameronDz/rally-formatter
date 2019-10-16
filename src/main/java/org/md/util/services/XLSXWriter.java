@@ -1,4 +1,4 @@
-package org.md.util.writer;
+package org.md.util.services;
 
 import java.io.File;
 import java.io.FileOutputStream;
