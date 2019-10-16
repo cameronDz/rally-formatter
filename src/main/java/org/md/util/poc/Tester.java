@@ -1,6 +1,5 @@
 package org.md.util.poc;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,14 +16,8 @@ public class Tester {
 		String file = "assets/data/export.xlsx";
 		XLSXDataReaderService reader;
 		List<XLSXUserStoryModel> userStoryXlsxList = new ArrayList<XLSXUserStoryModel>();
-		try {
-			reader = new XLSXDataReaderService(file);
-			userStoryXlsxList = reader.createUserStories();
-		} catch (IOException e) {
-			// TODO use proper logging
-			e.printStackTrace();
-		}
-		// TODO convert to a service
+		reader = new XLSXDataReaderService(file);
+		userStoryXlsxList = reader.createUserStories();
 		XLSXDataWriterService writer = new XLSXDataWriterService();
 		writer.generateDocs(userStoryXlsxList);
 	}
