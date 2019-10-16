@@ -1,11 +1,11 @@
-package org.md.util.data;
+package org.md.util.models;
 
 /**
  * User Story data holder when data is extracted from and XLSX/CSV file.
  * @author Cameron
  *
  */
-public class UserStoryXLSX {
+public class XLSXUserStoryModel {
 
 	private String description;
 	private String discussions;
@@ -20,7 +20,7 @@ public class UserStoryXLSX {
 	 * User story formatted ID code number.
 	 * @param id
 	 */
-	public UserStoryXLSX(int id) {
+	public XLSXUserStoryModel(int id) {
 		this.id = id;
 	}
 
@@ -117,7 +117,7 @@ public class UserStoryXLSX {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserStoryXLSX other = (UserStoryXLSX) obj;
+		XLSXUserStoryModel other = (XLSXUserStoryModel) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;

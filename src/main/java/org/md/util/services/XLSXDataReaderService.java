@@ -12,7 +12,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.md.util.data.UserStoryXLSX;
+import org.md.util.models.XLSXUserStoryModel;
 
 public class XLSXDataReaderService {
 
@@ -36,8 +36,8 @@ public class XLSXDataReaderService {
      * @throws FileNotFoundException if the file does not exists
      * @throws IOException if the file can't be read
      */
-    public List<UserStoryXLSX> createUserStories() throws FileNotFoundException, IOException {
-        List<UserStoryXLSX> list = new ArrayList<UserStoryXLSX>();
+    public List<XLSXUserStoryModel> createUserStories() throws FileNotFoundException, IOException {
+        List<XLSXUserStoryModel> list = new ArrayList<XLSXUserStoryModel>();
         FileInputStream inputStream = new FileInputStream(new File(path));
         Workbook workbook = new XSSFWorkbook(inputStream);
         Sheet sheet = workbook.getSheetAt(0);
@@ -48,7 +48,7 @@ public class XLSXDataReaderService {
         while(iterator.hasNext()) {
             Row nextRow = iterator.next();
             Iterator<Cell> cellIterator = nextRow.cellIterator();
-            UserStoryXLSX us = new UserStoryXLSX(0);
+            XLSXUserStoryModel us = new XLSXUserStoryModel(0);
             
             // work through the current 4 columns in the extract
             Cell cell = cellIterator.next();

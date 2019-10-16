@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.md.util.data.UserStoryXLSX;
+import org.md.util.models.XLSXUserStoryModel;
 import org.md.util.services.XLSXDataReaderService;
 import org.md.util.services.XLSXDataWriterService;
 
@@ -16,7 +16,7 @@ public class Tester {
 	public static void main(String[] args) {
 		String file = "assets/data/export.xlsx";
 		XLSXDataReaderService reader;
-		List<UserStoryXLSX> userStoryXlsxList = new ArrayList<UserStoryXLSX>();
+		List<XLSXUserStoryModel> userStoryXlsxList = new ArrayList<XLSXUserStoryModel>();
 		try {
 			reader = new XLSXDataReaderService(file);
 			userStoryXlsxList = reader.createUserStories();

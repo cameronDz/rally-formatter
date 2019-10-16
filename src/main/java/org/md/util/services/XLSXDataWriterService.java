@@ -8,7 +8,7 @@ import java.util.List;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
-import org.md.util.data.UserStoryXLSX;
+import org.md.util.models.XLSXUserStoryModel;
 
 /**
  * @author Cameron
@@ -20,7 +20,7 @@ public class XLSXDataWriterService {
 	/**
 	 * @param userStoryXlsxList List of US that will be printed out
 	 */
-	public void generateDocs(List<UserStoryXLSX> userStoryXlsxList) {
+	public void generateDocs(List<XLSXUserStoryModel> userStoryXlsxList) {
 		// create variables for writing documents
 		XWPFDocument document;
 		XWPFParagraph tmpParagraph;
@@ -43,7 +43,7 @@ public class XLSXDataWriterService {
 		}
 
 		//loop through list of US and write each to the file
-		Iterator<UserStoryXLSX> iterator = userStoryXlsxList.iterator();
+		Iterator<XLSXUserStoryModel> iterator = userStoryXlsxList.iterator();
 		while (iterator.hasNext()) {
 
 			// reset writer objects
@@ -52,7 +52,7 @@ public class XLSXDataWriterService {
 			tmpRun = tmpParagraph.createRun();
 
 			// put US data into string
-			UserStoryXLSX us = iterator.next();
+			XLSXUserStoryModel us = iterator.next();
 			String usString = "US";
 			usString += us.getId() + ": ";
 			usString += us.getName() + "\n";
