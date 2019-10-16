@@ -17,7 +17,7 @@ import org.md.util.models.UserStoryModel;
  * @author Cameron
  */
 public class PoiWriterService {
-	
+
 	private static final Logger LOG = LogManager.getLogger();
 
 	public PoiWriterService() { }
@@ -25,7 +25,7 @@ public class PoiWriterService {
 	/**
 	 * @param userStoryList List of US that will be printed out
 	 */
-	public void generateDocs(List<UserStoryModel> userStoryList) {
+	public void generateDocs(List<UserStoryModel> userStoryList, String path) {
 		// create variables for writing documents
 		XWPFDocument document;
 		XWPFParagraph tmpParagraph;
@@ -40,7 +40,7 @@ public class PoiWriterService {
 
 		try {
 			// create head of document and write to file
-			document.write(new FileOutputStream(new File("yourTestHere.docx")));
+			document.write(new FileOutputStream(new File(path)));
 			document.close();
 		} catch (IOException e) {
 			LOG.error("Could not finish writing document", e);
@@ -67,7 +67,7 @@ public class PoiWriterService {
 			tmpRun.setText(usString);
 			tmpRun.setFontSize(12);
 			try {
-				document.write(new FileOutputStream(new File("yourTestHere.docx")));
+				document.write(new FileOutputStream(new File(path)));
 				document.close();
 			} catch (IOException e) {
 				LOG.error("Could not finish writing document", e);

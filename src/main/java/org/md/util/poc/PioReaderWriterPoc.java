@@ -14,6 +14,6 @@ public class PioReaderWriterPoc {
 	public static void main(String[] args) {
 		String path = "assets/data/export.xlsx";
 		List<UserStoryModel> userStoryList = new PoiReaderService().createUserStories(path);
-		new PoiWriterService().generateDocs(userStoryList);
+		new PoiWriterService().generateDocs(userStoryList, "test");
 	}
 }
