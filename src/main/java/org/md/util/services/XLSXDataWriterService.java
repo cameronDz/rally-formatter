@@ -5,6 +5,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
@@ -14,6 +17,8 @@ import org.md.util.models.XLSXUserStoryModel;
  * @author Cameron
  */
 public class XLSXDataWriterService {
+	
+	private static final Logger LOG = LogManager.getLogger();
 
 	public XLSXDataWriterService() { }
 
@@ -38,8 +43,7 @@ public class XLSXDataWriterService {
 			document.write(new FileOutputStream(new File("yourTestHere.docx")));
 			document.close();
 		} catch (IOException e) {
-			// TODO proper logging
-			e.printStackTrace();
+			LOG.error("Could not finish writing document", e);
 		}
 
 		//loop through list of US and write each to the file
@@ -66,8 +70,7 @@ public class XLSXDataWriterService {
 				document.write(new FileOutputStream(new File("yourTestHere.docx")));
 				document.close();
 			} catch (IOException e) {
-				// TODO proper logging
-				e.printStackTrace();
+				LOG.error("Could not finish writing document", e);
 			}
 		}
 	}

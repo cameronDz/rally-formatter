@@ -2,11 +2,13 @@ package org.md.util.services;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -15,6 +17,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.md.util.models.XLSXUserStoryModel;
 
 public class XLSXDataReaderService {
+	
+	private static final Logger LOG = LogManager.getLogger();
 
     private String path;
 
@@ -32,18 +36,27 @@ public class XLSXDataReaderService {
 
     /**
      * Iterates through workbook and returns all user stories.
-     * @return List of all user stories.
-     * @throws FileNotFoundException if the file does not exists
-     * @throws IOException if the file can't be read
+     * @return List of all user stories
      */
-    public List<XLSXUserStoryModel> createUserStories() throws FileNotFoundException, IOException {
+    public List<XLSXUserStoryModel> createUserStories() {
+        List<XLSXUserStoryModel> list = null;
+		try {
+			FileInputStream inputStream = new FileInputStream(new File(path));
+			Workbook workbook = new XSSFWorkbook(inputStream);
+	        Sheet sheet = workbook.getSheetAt(0);
+	        Iterator<Row> iterator = sheet.iterator();
+	        list = generateListByIteratoringThroughRows(iterator);
+	        workbook.close();
+		} catch (IOException e) {
+			LOG.error("Could not finish generating User Story list", e);
+		}
+        return list;
+    }
+
+	private List<XLSXUserStoryModel> generateListByIteratoringThroughRows(Iterator<Row> iterator) {
         List<XLSXUserStoryModel> list = new ArrayList<XLSXUserStoryModel>();
-        FileInputStream inputStream = new FileInputStream(new File(path));
-        Workbook workbook = new XSSFWorkbook(inputStream);
-        Sheet sheet = workbook.getSheetAt(0);
 
         // iterator through list of stories, skip first row
-        Iterator<Row> iterator = sheet.iterator();
         iterator.next();
         while(iterator.hasNext()) {
             Row nextRow = iterator.next();
@@ -73,9 +86,8 @@ public class XLSXDataReaderService {
             // add US to list
             list.add(us);
         }
-        workbook.close();
-        return list;
-    }
+		return list;
+	}
 
 	/**
 	 * Takes a formatted ID from rally, that contains integers as well as letters, removes the letters, and returns the integer.
