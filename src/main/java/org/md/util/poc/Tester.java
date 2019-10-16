@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.md.util.data.UserStoryXLSX;
 import org.md.util.services.XLSXDataReaderService;
-import org.md.util.services.XLSXWriter;
+import org.md.util.services.XLSXDataWriterService;
 
 /**
  * @author Cameron
@@ -25,7 +25,7 @@ public class Tester {
 			e.printStackTrace();
 		}
 		// TODO convert to a service
-		XLSXWriter writer = new XLSXWriter();
+		XLSXDataWriterService writer = new XLSXDataWriterService();
 		writer.generateDocs(userStoryXlsxList);
 	}
 }

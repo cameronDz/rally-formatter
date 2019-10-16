@@ -13,9 +13,9 @@ import org.md.util.data.UserStoryXLSX;
 /**
  * @author Cameron
  */
-public class XLSXWriter {
+public class XLSXDataWriterService {
 
-	public XLSXWriter() { }
+	public XLSXDataWriterService() { }
 
 	/**
 	 * @param userStoryXlsxList List of US that will be printed out
