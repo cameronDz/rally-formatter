@@ -19,7 +19,6 @@ public class App {
 		String pdfBoxOutputPath = "target/pdfBoxDocument.pdf";
 		new PdfBoxWriterService().generateDocument(pdfBoxOutputPath);
 		LOG.info("Finishing pdfbox writer service..");
-		
 		LOG.info("Starting pio reader/writer service..");
 		String poiExportInputPath = "assets/data/export.xlsx";
 		String poiOutputPath = "target/poiWriter.docx";
