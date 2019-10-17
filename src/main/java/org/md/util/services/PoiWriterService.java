@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
@@ -18,7 +18,7 @@ import org.md.util.models.UserStoryModel;
  */
 public class PoiWriterService {
 
-	private static final Logger LOG = LogManager.getLogger();
+	private static final Log LOG = LogFactory.getLog(PoiWriterService.class);
 
 	public PoiWriterService() { }
 

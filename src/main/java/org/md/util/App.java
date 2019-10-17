@@ -2,8 +2,8 @@ package org.md.util;
 
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.commons.logging.LogFactory;
+import org.apache.commons.logging.Log;
 import org.md.util.models.UserStoryModel;
 import org.md.util.services.PdfBoxWriterService;
 import org.md.util.services.PoiReaderService;
@@ -11,7 +11,7 @@ import org.md.util.services.PoiWriterService;
 
 public class App {
 
-	private static final Logger LOG = LogManager.getLogger();
+	private static final Log LOG = LogFactory.getLog(App.class);
 
 	public static void main (String... args) {
 		LOG.info("Starting proof of concept run..");

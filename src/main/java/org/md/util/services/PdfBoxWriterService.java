@@ -3,8 +3,8 @@ package org.md.util.services;
 import java.awt.Color;
 import java.io.IOException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.commons.logging.LogFactory;
+import org.apache.commons.logging.Log;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -15,7 +15,7 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 public class PdfBoxWriterService {
 
-	private static final Logger LOG = LogManager.getLogger();
+	private static final Log LOG = LogFactory.getLog(PdfBoxWriterService.class);
 
 	public PdfBoxWriterService() {}
 	
